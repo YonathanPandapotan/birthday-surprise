@@ -10,6 +10,7 @@ $(".box").click(function() {
 
 $(".present-image").click(function(){
     // $(this).attr("src", "Opened Ribbon Box (Revised)@2x.png")
+    $(".click-here").remove();
     
     console.log($('.background').height());
     console.log($('.banner-text').height());

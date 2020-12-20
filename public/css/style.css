@@ -119,6 +119,10 @@ body{
     font-size: 1.2em;
 }
 
+.click-here{
+    text-align: center;
+}
+
 @media screen and (max-height: 375px) {
     .background{
         height: 100%;
