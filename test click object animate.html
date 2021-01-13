@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>A Page</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <style>
+        @font-face {
+            font-family: HappySerif;
+            src: url('Happy Serif.ttf');
+        }
+        @font-face {
+            font-family: OpenSans;
+            src: url('OpenSans-Regular.ttf');
+        }
+        @font-face {
+            font-family: Capriola;
+            src: url('Capriola-Regular.ttf');
+        }
+        html{
+            height: 100%;
+            width: 100%;
+        }
+        body{
+            widows: 100%;
+            height: 100%;
+            margin: 0px;
+            min-width: 407px;
+        }
+        .background{
+            height: 100%;
+            opacity: 0;
+            background: url('confetti-background.png') no-repeat center center ;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+        .box {
+            width: 65px;
+            height: 65px;
+            background-color: green;
+            border: 1px blue solid;
+            position: relative;
+            
+        }
+        
+        .slide {
+            position: absolute;
+            width: 0;
+            height: 65px;
+            background-color: red;
+            left: 66px;
+        }
+
+        .present-div{
+            bottom: 0px;
+            position: absolute;
+            width: 100%;
+            min-width: 407px;
+        }
+
+        .present-image{
+            width: 200px;
+            height: 200px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .present-image:hover{
+            cursor: pointer;
+        }
+
+        .banner-text{
+            display: none;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%);
+        }
+
+        .umur-ultah, .happy-birthday, .nama-ultah{
+            text-align: center;
+            text-shadow: -2px 0 #ffffff, 0 2px #ffffff, 2px 0 #ffffff, 0 -2px #ffffff;
+        }
+        
+        .happy-birthday{
+            font-family: 'HappySerif';
+            font-size: 5.4em;
+            /* text-shadow: 5px 5px #ffffff;  */
+            margin-bottom: 0px;
+
+        }
+        .nama-ultah{
+            font-family: 'Capriola';
+            font-size: 2.4em;
+            margin-bottom: 0px;
+        }
+
+        .pesan-pesan{
+            height: 100vh;
+            padding-top: 2em;
+            padding-left: 2em;
+            padding-right: 2em;
+            background: url('background-image.jpg') no-repeat center center;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            display: none;
+        }
+
+        .pesan-text{
+            width: 50%;
+            background-color: rgba(0, 0, 0, 0.3);;
+            padding: 1em;
+        }
+
+        .pesan-text h2, p{
+            color: #ffffff;
+        }
+        .pesan-text h2{
+            font-size: 1.6em;
+        }
+
+        .pesan-text p{
+            font-size: 1.2em;
+        }
+        
+        .click-here{
+            text-align: center;
+        }
+
+        @media screen and (max-height: 375px) {
+            .background{
+                height: 100%;
+            }
+            .happy-birthday{
+                font-size: 3.2em;
+                text-shadow: 5px 5px #ffffff;
+            }
+            .nama-ultah{
+                font-size: 1.4em;
+                margin-bottom: 0px;
+            }
+            
+        }
+
+        @media screen and (max-width: 450px) {
+            .pesan-text {
+                width: 80%;
+            }
+            
+        }
+    </style>
+</head>
+<body>
+
+    <div class="background">
+    </div>
+    
+    <div class="present-div">
+        <div class="banner-text" style="opacity: 0;">
+            <h1 class="happy-birthday">Happy Birthday</h1>
+            <h2 class="nama-ultah">Someone</h2>
+            <h3 class="umur-ultah">Yang ke-20</h3>
+        </div>
+        <div class="click-here">
+            <h2>Click the present!</h2>
+        </div>
+        <img class="present-image" src="2.Gift Box(Final).png">
+    </div>
+
+    <div class="pesan-pesan">
+        <div class="pesan-text">
+            <h2>Halo Someone, selamat ulang tahun!</h2>
+            <p>Hari ini ulang tahun yang ke-20 kan yah? Semoga semakin panjang umur dan sehat-sehat selalu. Dapet banyak berkat dan keburuntungan.</p>
+            <p>Semoga gampang ngerjain skripsi dan tugas kuliahnya jadi lebih cepet lulus tapi langsung dapet kerja kagak pengangguran dulu seperti saya.</p>
+            <br>
+            <p>Web ini dibuat untuk nyampain selamat ulang tahun, dan juga untuk menyampaikan selamat natal.</p>
+            <p>Demikian pesan ini dibuat, semoga hari anda menyenangkan.</p>
+        </div>
+        <div class="image">
+
+        </div>
+    </div>
+
+    <script>
+        var images = [
+            "3.Opeend Ribbon Gift Box (Final).png",
+            "4.Lifted Top Gift Box (Final).png",
+            "5.Opened Gift Box (Final).png"
+            ]
+        
+        $(".box").click(function() {
+            $(this).find(".slide").stop().animate({ width: 200 });
+        }); 
+
+        $(".present-image").click(function(){
+            // $(this).attr("src", "Opened Ribbon Box (Revised)@2x.png")
+            $(".click-here").remove();
+            
+            console.log($('.background').height());
+            console.log($('.banner-text').height());
+            $(this)
+            .fadeOut(1000, function() {
+                $(".present-image").attr('src',images[0]);
+                document.title='3';
+            })
+            .fadeIn(1000)
+            .fadeOut(1000, function() {
+                $(".present-image").attr('src',images[1]);
+                document.title='2';
+            })
+            .fadeIn(1000)
+            .fadeOut(1000, function() {
+                $(".present-image").attr('src',images[2]);
+                document.title='1';
+            })
+            .fadeIn(1000, function(){
+                document.title='Selamat Ulang Tahun Someone!';
+                $(".banner-text").css("display", "block");
+                $tinggi = $('.background').height() - $('.banner-text').height();
+                $(".background").animate({
+                    'opacity':'1'
+                },{duration:3000,queue:false});
+                $(".banner-text").animate({
+                    'bottom': $tinggi,
+                    'opacity': '1'
+                }, {duration:3000, queue: false});
+
+                $(".banner-text").children().each(function(){
+                    $fontsize = $(this).css('font-size');
+                    console.log($('.happy-birthday').css('font-size'));
+
+                    $(this).css('font-size', '0em');
+                    $(this).animate({
+                        fontSize: $fontsize
+                    }, {duration:3000, queue:false});
+
+                });
+
+                $('.pesan-pesan').css('display', 'block');
+            });
+        });   
+
+    </script>
+    
+</body>
+</html>
